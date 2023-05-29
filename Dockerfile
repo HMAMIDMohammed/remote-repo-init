@@ -19,3 +19,6 @@ HEALTHCHECK --interval=1m --timeout=30s --retries=3 CMD curl --fail http://local
 
 EXPOSE 80
 
+
+#test
+
