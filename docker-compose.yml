@@ -3,8 +3,8 @@ version: "3.2"
 services:
 
   srv-web:
-    image: webserver
     container_name: srv-web
+    image: webserver
     restart: always
     ports: 
       - 1025:1025

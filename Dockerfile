@@ -12,12 +12,10 @@ RUN apt update
 RUN apt install zabbix-agent2 zabbix-agent2-plugin-*
 RUN echo "Server=172.19.34.72" >> /etc/zabbix/zabbix_agentd.conf
 RUN echo "ServerActive=172.19.34.72" >> /etc/zabbix/zabbix_agentd.conf
-RUN systemctl restart zabbix-agent2.service
-RUN systemctl enable zabbix-agent2.service
+RUN service zabbix-agent2 restart
 
 HEALTHCHECK --interval=1m --timeout=30s --retries=3 CMD curl --fail http://localhost:80 || exit 1
 
-EXPOSE 80
 
 
 #test
