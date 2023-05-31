@@ -1,10 +1,11 @@
-version: "3.2"
+version: "3"
 
 services:
-
   srv-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: srv-web
-    image: webserver
-    restart: always
-    ports: 
-      - 1025:1025
+    ports:
+      - 2000:80
+      - 10050:10050
