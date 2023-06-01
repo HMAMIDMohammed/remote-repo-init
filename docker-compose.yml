@@ -2,10 +2,18 @@ version: "3"
 
 services:
   srv-web:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: httpd:latest
     container_name: srv-web
     ports:
       - 2000:80
+  
+  agent-zabbix:
+    image: zabbix/zabbix-agent:latest
+    container_name: agent-zabbix
+    ports:
       - 10050:10050
+    environment:
+      - ZBX_HOSTNAME=srv-web
+      - ZBX_SERVER_HOST=172.24.0.1
+    depends_on:
+      - srv-web

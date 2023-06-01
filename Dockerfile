@@ -30,5 +30,8 @@ HEALTHCHECK --interval=1m --timeout=30s --retries=3 CMD curl --fail http://local
 EXPOSE 80
 EXPOSE 10050
 
+#Fichier de démarrage
 
-CMD ["/start.sh"]
+#COPY start.sh /start.sh
+#RUN chmod +x /script.sh
+#ENTRYPOINT ["/start.sh"]
